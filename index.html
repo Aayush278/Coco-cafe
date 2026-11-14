@@ -1,0 +1,4018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coco's Café &amp; Atelier | Artisanal Coffee &amp; French Pâtisserie</title>
+  <meta name="description" content="Coco's Café is a Parisian-inspired sanctuary of specialty single-origin roasts, handcrafted French pâtisserie, and quiet luxury. Visit our atelier or reserve your table.">
+  <meta name="keywords" content="Coco's Cafe, specialty coffee, Parisian cafe, artisan patisserie, brunch, espresso bar, quiet luxury cafe">
+  <meta name="author" content="Coco's Cafe">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="Coco's Café &amp; Atelier | Artisanal Coffee &amp; French Pâtisserie">
+  <meta property="og:description" content="A sanctuary of fine coffee, artisanal pastries, and quiet luxury inspired by classic Parisian ateliers.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80">
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>☕</text></svg>">
+
+  <!-- Google Fonts: Cormorant Garamond (Editorial Luxury Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & DESIGN SYSTEM (REPLICATED FROM REFERENCE DESIGN)
+       Warm linen palette, high-contrast serif typography, refined bracket accents
+       ========================================================================== */
+    :root {
+      /* Backgrounds */
+      --bg-primary: #FAF7F2;          /* Signature warm linen cream */
+      --bg-secondary: #F3ECE1;        /* Toasted parchment accent */
+      --bg-card: #FFFFFF;             /* Crisp clean gallery cards */
+      --bg-card-hover: #FCFAF7;
+      --bg-dark: #1C1815;             /* Deep roasted espresso / noir */
+      --bg-dark-surface: #27211C;
+      --bg-banner: #F7F4EE;
+
+      /* Typography Colors */
+      --text-primary: #1C1814;        /* Deep charcoal / soft black */
+      --text-secondary: #6B6257;      /* Warm taupe */
+      --text-muted: #968D82;          /* Subtle metadata */
+      --text-light: #FAF7F2;
+
+      /* Accents */
+      --accent-gold: #9E7946;         /* Gilded bronze / antique brass */
+      --accent-gold-light: #C29D64;
+      --accent-gold-dark: #7A5B2F;
+      --accent-warm: #C85A32;         /* Terracotta / baked crust */
+
+      /* Hairline borders */
+      --border-subtle: rgba(28, 24, 20, 0.08);
+      --border-medium: rgba(28, 24, 20, 0.16);
+      --border-dark: rgba(250, 247, 242, 0.12);
+
+      /* Typography */
+      --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      /* Transitions */
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.2s ease;
+
+      /* Elevation */
+      --shadow-subtle: 0 4px 20px rgba(28, 24, 20, 0.04);
+      --shadow-hover: 0 16px 36px rgba(28, 24, 20, 0.08);
+      --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+      /* Layout */
+      --max-width: 1360px;
+      --section-padding: 96px 24px;
+      --nav-height: 84px;
+    }
+
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition-fast);
+    }
+
+    input, textarea, select {
+      font-family: inherit;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Utilities */
+    .section {
+      padding: var(--section-padding);
+      position: relative;
+    }
+
+    .section-alt {
+      background-color: var(--bg-secondary);
+    }
+
+    .section-dark {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    /* Editorial Section Header */
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-kicker {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 400;
+      line-height: 1.18;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-dark .section-title {
+      color: var(--text-light);
+    }
+
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .section-dark .section-desc {
+      color: #BFB6AB;
+    }
+
+    /* Bracket Accent Links (Key feature of the reference design) */
+    .bracket-link {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-fast);
+    }
+
+    .bracket-link::before { content: "{ "; color: var(--accent-gold); font-style: normal; font-weight: 400; }
+    .bracket-link::after { content: " }"; color: var(--accent-gold); font-style: normal; font-weight: 400; }
+
+    .bracket-link:hover {
+      color: var(--accent-gold);
+      transform: translateX(3px);
+    }
+
+    .section-dark .bracket-link {
+      color: var(--text-light);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 30px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+      border-radius: 0;
+      position: relative;
+    }
+
+    .btn-primary {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      border: 1px solid var(--text-primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(158, 121, 70, 0.25);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background-color: var(--accent-gold);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .btn-gold:hover {
+      background-color: var(--accent-gold-dark);
+      border-color: var(--accent-gold-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark-outline {
+      background-color: transparent;
+      color: var(--text-light);
+      border: 1px solid rgba(250, 247, 242, 0.4);
+    }
+
+    .btn-dark-outline:hover {
+      background-color: var(--text-light);
+      color: var(--bg-dark);
+      border-color: var(--text-light);
+    }
+
+    /* ==========================================================================
+       TOP ANNOUNCEMENT / ATELIER TICKER
+       ========================================================================== */
+    .announcement-bar {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 9px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .announcement-bar .atelier-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #38A169;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.2);
+    }
+
+    /* ==========================================================================
+       TOP HEADER (REPRESENTING THE "CHARLES" REFERENCE IMAGE LAYOUT)
+       Row 1: Search, Grand Centered Logo, Language Switcher & Contact
+       Row 2: Centered Category Navigation
+       ========================================================================== */
+    .site-header {
+      background-color: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition-fast);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+      background-color: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 32px 14px 32px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Search trigger (Left, matching "Q Recherche") */
+    .header-search-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      padding: 6px 12px;
+      border-radius: 2px;
+      transition: var(--transition-fast);
+    }
+
+    .header-search-trigger:hover {
+      color: var(--accent-gold);
+      background-color: rgba(28, 24, 20, 0.03);
+    }
+
+    .header-search-trigger i {
+      font-size: 0.88rem;
+    }
+
+    /* Center Grand Logo (matching "CHARLES PARIS") */
+    .header-logo-wrap {
+      text-align: center;
+    }
+
+    .header-logo {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1;
+      display: block;
+      margin-left: 0.22em; /* balance letter spacing */
+    }
+
+    .header-logo-sub {
+      font-family: var(--font-serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      display: block;
+      margin-top: 5px;
+      font-weight: 400;
+    }
+
+    /* Right utilities (Language En | Fr, Envelope, Reserve CTA) */
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+    }
+
+    .lang-switcher span.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .header-icon-btn {
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      transition: var(--transition-fast);
+    }
+
+    .header-icon-btn:hover {
+      color: var(--accent-gold);
+    }
+
+    .header-cta-btn {
+      padding: 9px 20px;
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      padding: 8px;
+    }
+
+    /* Row 2: Navigation Links (matching "Collections Designers Sur-Mesure...") */
+    .header-nav {
+      padding: 10px 24px 16px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid rgba(28, 24, 20, 0.04);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      position: relative;
+      padding: 4px 0;
+      transition: var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-gold);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Mobile Navigation Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--bg-primary);
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      padding: 36px 30px;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .mobile-drawer-link {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      display: block;
+      transition: var(--transition-fast);
+    }
+
+    .mobile-drawer-link:hover {
+      color: var(--accent-gold);
+      transform: translateX(6px);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       HERO SECTION (REPLICATING IMAGE 3 EDITORIAL HERO)
+       Grand high-fashion French atelier composition
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--bg-primary);
+      overflow: hidden;
+      padding: 40px 0 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      padding-right: 20px;
+    }
+
+    .hero-pretitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+    }
+
+    .hero-pretitle::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background-color: var(--accent-gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 5.5vw, 4.8rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent-gold);
+    }
+
+    .hero-quote-signature {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .hero-features-ribbon {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .hero-feature-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-feature-val {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .hero-feature-lbl {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Hero Visual Showcase */
+    .hero-visual-wrap {
+      position: relative;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      display: block;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Floating caption overlay matching reference Image 3 bottom text */
+    .hero-image-caption {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      right: 28px;
+      background-color: rgba(28, 24, 20, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--text-light);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-caption-text {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #F5EFE6;
+    }
+
+    /* Decorative gilded frame border */
+    .hero-frame-accent {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--accent-gold);
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* ==========================================================================
+       ABOUT SECTION (REPLICATING IMAGE 2 & 1 EDITORIAL COMPOSITIONS)
+       Split atelier story with atmospheric texture & bracketed callouts
+       ========================================================================== */
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .about-visuals {
+      position: relative;
+    }
+
+    .about-visual-primary {
+      position: relative;
+      box-shadow: var(--shadow-hover);
+      overflow: hidden;
+    }
+
+    .about-visual-primary img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .about-badge-floating {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 28px;
+      text-align: center;
+      max-width: 200px;
+      border: 1px solid rgba(250, 247, 242, 0.15);
+      box-shadow: var(--shadow-modal);
+    }
+
+    .about-badge-num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      color: var(--accent-gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .about-badge-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #D3C9BD;
+    }
+
+    .about-text-content {
+      padding-left: 10px;
+    }
+
+    .editorial-highlight {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 24px;
+      padding-left: 20px;
+      border-left: 2px solid var(--accent-gold);
+    }
+
+    .about-body-text {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+    }
+
+    /* Pillars */
+    .about-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+      padding-top: 50px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .pillar-card {
+      background-color: var(--bg-card);
+      padding: 36px 30px;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-gold);
+    }
+
+    .pillar-icon {
+      font-size: 1.6rem;
+      color: var(--accent-gold);
+      margin-bottom: 18px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       MENU SECTION (REPLICATING IMAGE 1 CATALOG CARD GRID)
+       Clean cards, refined serif typography, category tabs & search filter
+       ========================================================================== */
+    .menu-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .menu-search-wrap {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .menu-search-input {
+      width: 100%;
+      padding: 13px 44px 13px 18px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .menu-search-input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(158, 121, 70, 0.12);
+    }
+
+    .menu-search-icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .menu-category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .menu-tab-btn {
+      padding: 9px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-card);
+      transition: var(--transition-fast);
+    }
+
+    .menu-tab-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .menu-tab-btn.active {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    /* Menu Grid (Style directly echoes Image 1 product cards) */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .menu-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(158, 121, 70, 0.35);
+    }
+
+    .menu-card-img-wrap {
+      position: relative;
+      height: 240px;
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+    }
+
+    .menu-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .menu-card:hover .menu-card-img {
+      transform: scale(1.05);
+    }
+
+    .menu-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background-color: var(--bg-primary);
+      color: var(--accent-gold-dark);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid rgba(158, 121, 70, 0.25);
+    }
+
+    .menu-card-body {
+      padding: 24px 22px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .menu-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+
+    .menu-card-price {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent-gold-dark);
+      white-space: nowrap;
+    }
+
+    .menu-card-desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .menu-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .menu-dietary-tags {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dietary-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background-color: var(--bg-secondary);
+      padding: 2px 7px;
+    }
+
+    .menu-order-btn {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition-fast);
+    }
+
+    .menu-order-btn:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Empty state */
+    .menu-no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      display: none;
+    }
+
+    /* ==========================================================================
+       EDITORIAL SPLIT BANNER (INSPIRATION FROM IMAGE 2)
+       "Les éditions de la maison Coco's"
+       ========================================================================== */
+    .editorial-feature-section {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 70px 0;
+    }
+
+    .editorial-feature-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .editorial-feature-img {
+      box-shadow: var(--shadow-hover);
+      height: 440px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .editorial-feature-text {
+      padding-right: 30px;
+    }
+
+    .editorial-feature-title {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .editorial-feature-p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    /* ==========================================================================
+       GALLERY SECTION & LIGHTBOX (VANILLA JS)
+       Clean masonry/grid showcasing ambience, drinks, and spaces
+       ========================================================================== */
+    .gallery-filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-tab-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 8px 18px;
+      border: 1px solid transparent;
+      transition: var(--transition-fast);
+    }
+
+    .gallery-tab-btn.active, .gallery-tab-btn:hover {
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--accent-gold);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: var(--bg-secondary);
+    }
+
+    .gallery-item.span-2 {
+      grid-column: span 2;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.06);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(28, 24, 20, 0.85) 0%, rgba(28, 24, 20, 0.1) 60%, transparent 100%);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      transition: opacity 0.35s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .gallery-item-cat {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold-light);
+    }
+
+    .gallery-zoom-icon {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      color: #FFFFFF;
+      font-size: 1.1rem;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 15, 12, 0.95);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 85vw;
+      max-height: 75vh;
+      object-fit: contain;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-caption {
+      margin-top: 16px;
+      text-align: center;
+      color: #FFFFFF;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      color: #FFFFFF;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 16px;
+      transition: var(--transition-fast);
+      z-index: 10;
+    }
+
+    .lightbox-btn:hover {
+      color: var(--accent-gold);
+    }
+
+    .lightbox-close {
+      top: 24px;
+      right: 28px;
+      font-size: 2rem;
+    }
+
+    .lightbox-prev {
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ==========================================================================
+       CUSTOMER REVIEWS SECTION
+       Warm luxury editorial review cards & Google reviews link
+       ========================================================================== */
+    .reviews-summary-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 30px 40px;
+      max-width: 600px;
+      margin: 0 auto 50px auto;
+      text-align: center;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .rating-big-stars {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      letter-spacing: 4px;
+    }
+
+    .rating-big-score {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      line-height: 1;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .rating-summary-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 6px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .review-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-gold);
+    }
+
+    .review-stars {
+      color: var(--accent-gold);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+      letter-spacing: 2px;
+    }
+
+    .review-quote {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .review-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .review-author-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-medium);
+    }
+
+    .review-author-name {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .review-author-meta {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .reviews-cta-wrap {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* ==========================================================================
+       LOCATION & HOURS SECTION (REPLICATING SPECIFIC BRIEF REQUIREMENTS)
+       Embedded Google Maps, physical address, live opening hours status
+       ========================================================================== */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: stretch;
+    }
+
+    .location-info-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 44px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .location-info-block {
+      margin-bottom: 28px;
+    }
+
+    .location-info-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .location-info-title i {
+      color: var(--accent-gold);
+      font-size: 1rem;
+    }
+
+    .location-address {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Opening Hours Table */
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.88rem;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid rgba(28, 24, 20, 0.05);
+    }
+
+    .hours-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .hours-table td {
+      padding: 9px 0;
+    }
+
+    .hours-day {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hours-time {
+      text-align: right;
+      color: var(--text-secondary);
+    }
+
+    .hours-table tr.today {
+      background-color: rgba(158, 121, 70, 0.07);
+    }
+
+    .hours-table tr.today td {
+      font-weight: 600;
+      color: var(--accent-gold-dark);
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    /* Map Frame */
+    .location-map-wrap {
+      position: relative;
+      border: 1px solid var(--border-subtle);
+      min-height: 480px;
+      background-color: var(--bg-secondary);
+      box-shadow: var(--shadow-subtle);
+      overflow: hidden;
+    }
+
+    .location-map-iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      border: 0;
+      display: block;
+      filter: contrast(95%) saturate(85%);
+    }
+
+    /* ==========================================================================
+       CONTACT & RESERVATION SECTION
+       Editable details, WhatsApp integration, reservation form
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-details-panel {
+      padding-right: 20px;
+    }
+
+    .contact-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .contact-item-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 24px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-fast);
+    }
+
+    .contact-item-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateX(4px);
+    }
+
+    .contact-item-icon {
+      font-size: 1.25rem;
+      color: var(--accent-gold);
+      width: 24px;
+      margin-top: 2px;
+    }
+
+    .contact-item-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-item-val {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .contact-socials-row {
+      display: flex;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .social-link-btn {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-medium);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      font-size: 1.05rem;
+      transition: var(--transition-fast);
+      background-color: var(--bg-card);
+    }
+
+    .social-link-btn:hover {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    /* WhatsApp Special Banner */
+    .whatsapp-direct-banner {
+      margin-top: 24px;
+      padding: 18px 24px;
+      background-color: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .whatsapp-direct-text {
+      font-size: 0.88rem;
+      color: #166534;
+      font-weight: 500;
+    }
+
+    /* Reservation Form */
+    .reservation-form-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 44px 38px;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-medium);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(158, 121, 70, 0.1);
+    }
+
+    .form-feedback {
+      padding: 14px;
+      margin-top: 18px;
+      background-color: #F0FDF4;
+      border: 1px solid #86EFAC;
+      color: #166534;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       Editorial dark roasted espresso finish
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 80px 24px 36px 24px;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr 0.9fr 1.2fr;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-sub {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      color: #BFB6AB;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      margin-bottom: 22px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 28px;
+      height: 1px;
+      background-color: var(--accent-gold);
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link {
+      color: #BFB6AB;
+      font-size: 0.88rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-link:hover {
+      color: var(--accent-gold);
+      padding-left: 4px;
+    }
+
+    /* Newsletter Form */
+    .newsletter-form {
+      display: flex;
+      margin-top: 16px;
+    }
+
+    .newsletter-input {
+      flex-grow: 1;
+      padding: 12px 14px;
+      background-color: #27211C;
+      border: 1px solid var(--border-dark);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--accent-gold);
+    }
+
+    .newsletter-btn {
+      padding: 12px 20px;
+      background-color: var(--accent-gold);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .newsletter-btn:hover {
+      background-color: var(--accent-gold-dark);
+    }
+
+    .footer-bottom {
+      padding-top: 36px;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.78rem;
+      color: #8C8276;
+    }
+
+    /* ==========================================================================
+       AUTHENTIC COOKIE CONSENT BANNER (DIRECTLY REPLICATING THE REFERENCE SCREENSHOT)
+       "Nous utilisons des cookies de mesure d'audience... [Refuser] [Accepter]"
+       ========================================================================== */
+    .reference-cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #FFFFFF;
+      border-top: 1px solid rgba(28, 24, 20, 0.1);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      z-index: 2500;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      transition: transform 0.4s ease;
+    }
+
+    .reference-cookie-banner.hidden {
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+
+    .cookie-banner-text {
+      font-size: 0.82rem;
+      color: #2D2722;
+      line-height: 1.5;
+      max-width: 880px;
+    }
+
+    .cookie-banner-text a {
+      text-decoration: underline;
+      color: inherit;
+    }
+
+    .cookie-banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .cookie-btn-refuse {
+      padding: 9px 24px;
+      background-color: transparent;
+      border: 1px solid #D5CEC4;
+      color: #1C1814;
+      font-size: 0.82rem;
+      transition: var(--transition-fast);
+    }
+
+    .cookie-btn-refuse:hover {
+      background-color: #F5EFE6;
+    }
+
+    .cookie-btn-accept {
+      padding: 9px 24px;
+      background-color: #111111;
+      border: 1px solid #111111;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: var(--transition-fast);
+    }
+
+    .cookie-btn-accept:hover {
+      background-color: var(--accent-gold);
+      border-color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       SEARCH MODAL (LIVE SEARCH MENU & SECTIONS)
+       ========================================================================== */
+    .search-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(28, 24, 20, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 3500;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 100px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .search-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .search-modal-box {
+      background-color: var(--bg-primary);
+      width: 90%;
+      max-width: 680px;
+      box-shadow: var(--shadow-modal);
+      border: 1px solid var(--border-medium);
+      padding: 32px;
+      position: relative;
+    }
+
+    .search-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .search-modal-close:hover {
+      color: var(--text-primary);
+    }
+
+    .search-modal-input-wrap {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .search-modal-input {
+      width: 100%;
+      padding: 16px 20px 16px 48px;
+      font-size: 1.15rem;
+      font-family: var(--font-serif);
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .search-modal-input:focus {
+      border-color: var(--accent-gold);
+    }
+
+    .search-modal-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+    }
+
+    .search-modal-results {
+      max-height: 340px;
+      overflow-y: auto;
+      list-style: none;
+    }
+
+    .search-result-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .search-result-item:hover {
+      background-color: var(--bg-secondary);
+    }
+
+    /* Floating Quick Actions */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 84px;
+      right: 24px;
+      width: 52px;
+      height: 52px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 1500;
+      transition: var(--transition-smooth);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      border: 1px solid var(--border-dark);
+      cursor: pointer;
+      z-index: 1400;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-fast);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (TABLETS & MOBILE)
+       Strict adherence: No horizontal overflow, elegant typography scaling
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      :root {
+        --section-padding: 72px 20px;
+      }
+      .nav-links {
+        gap: 24px;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-image-frame img {
+        height: 480px;
+      }
+      .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .editorial-feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .announcement-bar {
+        display: none;
+      }
+      .header-nav {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .header-search-trigger span {
+        display: none;
+      }
+      .lang-switcher {
+        display: none;
+      }
+      .header-cta-btn {
+        display: none;
+      }
+      .header-logo {
+        font-size: 1.7rem;
+      }
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .about-pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-badge-floating {
+        position: static;
+        max-width: 100%;
+        margin-top: 16px;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item.span-2 {
+        grid-column: span 1;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .reference-cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+      }
+      .cookie-banner-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       TOP TICKER / ANNOUNCEMENT
+       ======================================================================== -->
+  <div class="announcement-bar">
+    <div class="atelier-status">
+      <span class="status-dot"></span>
+      <span>Atelier Open Today &bull; 8:00 AM &ndash; 10:00 PM</span>
+    </div>
+    <div>
+      <span>Artisanal Roastery &amp; Pâtisserie &bull; Paris &bull; Worldwide Soul</span>
+    </div>
+    <div>
+      <a href="#contact" class="bracket-link" style="font-size: 0.8rem;">{ Reserve For Brunch }</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SITE HEADER (MATCHING "CHARLES PARIS" LAYOUT)
+       Row 1: Search, Centered Luxury Logo, Language & Utility Tools
+       Row 2: Centered Editorial Navigation Links
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-top">
+      <!-- Search Trigger (Left) -->
+      <button class="header-search-trigger" id="openSearchBtn" aria-label="Search menu and atelier">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Recherche</span>
+      </button>
+
+      <!-- Centered Grand Logo -->
+      <div class="header-logo-wrap">
+        <a href="#home" class="header-logo">COCO'S</a>
+        <span class="header-logo-sub">CAFÉ &amp; ATELIER</span>
+      </div>
+
+      <!-- Right Tools -->
+      <div class="header-tools">
+        <div class="lang-switcher" aria-label="Language options">
+          <span class="active">En</span> | <span>Fr</span>
+        </div>
+        <a href="#contact" class="header-icon-btn" title="Contact &amp; Hours" aria-label="Contact">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
+        <a href="#contact" class="btn btn-primary header-cta-btn">
+          Visit Us
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuOpenBtn" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Centered Nav (Collections, Designers, Atelier, etc. inspired) -->
+    <nav class="header-nav" aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#location" class="nav-link">Location</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="header-logo-wrap" style="text-align: left;">
+        <span class="header-logo" style="font-size: 1.8rem;">COCO'S</span>
+        <span class="header-logo-sub">CAFÉ &amp; ATELIER</span>
+      </div>
+      <button class="header-icon-btn" id="mobileMenuCloseBtn" style="font-size: 1.6rem;" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="mobile-drawer-links">
+      <li><a href="#home" class="mobile-drawer-link">01. Home</a></li>
+      <li><a href="#about" class="mobile-drawer-link">02. About The Atelier</a></li>
+      <li><a href="#menu" class="mobile-drawer-link">03. La Carte (Menu)</a></li>
+      <li><a href="#gallery" class="mobile-drawer-link">04. The Gallery</a></li>
+      <li><a href="#reviews" class="mobile-drawer-link">05. Patron Reviews</a></li>
+      <li><a href="#location" class="mobile-drawer-link">06. Location &amp; Directions</a></li>
+      <li><a href="#contact" class="mobile-drawer-link">07. Contact &amp; Bookings</a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <p style="margin-bottom: 12px; font-weight: 500;">Coco's Café &amp; Atelier</p>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">14 Rue de la Paix / 240 Grand Boulevard<br>Open Daily: 8:00 AM &ndash; 10:00 PM</p>
+      <a href="#contact" class="btn btn-primary" style="width: 100%;">Reserve a Table</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HERO SECTION (ECHOING IMAGE 3 ATMOSPHERIC LUXURY COMPOSITION)
+       ======================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Editorial Content -->
+        <div class="hero-content">
+          <div class="hero-pretitle">Haute Torréfaction &bull; Pâtisserie Fine</div>
+          <h1 class="hero-title">
+            Né d’une passion.<br>
+            <em>Infusé</em> par la main.
+          </h1>
+          <p class="hero-quote-signature">
+            &ldquo;A Parisian sanctuary of specialty single-origin roasts, delicate viennoiserie, and quiet luxury.&rdquo;
+          </p>
+          <p class="hero-desc">
+            Step into Coco's Café &mdash; where slow mornings meet artisanal perfection. Every espresso is pulled with scientific precision, every flaky croissant laminated before dawn, and every corner crafted for timeless conversation.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+            <a href="#location" class="btn btn-outline">Find Us</a>
+            <a href="#about" class="bracket-link">{ Discover Our Story }</a>
+          </div>
+
+          <div class="hero-features-ribbon">
+            <div class="hero-feature-item">
+              <span class="hero-feature-val">100%</span>
+              <span class="hero-feature-lbl">Single-Origin Arabica</span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="hero-feature-val">48h</span>
+              <span class="hero-feature-lbl">Fermented Brioche</span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="hero-feature-val">4.9&starf;</span>
+              <span class="hero-feature-lbl">Patron Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Photographic Art (Echoing Image 3 sculpture aesthetic) -->
+        <div class="hero-visual-wrap">
+          <div class="hero-frame-accent"></div>
+          <div class="hero-image-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80" 
+              alt="Coco's Cafe artisanal coffee table with golden morning light" 
+              loading="eager"
+            >
+            <div class="hero-image-caption">
+              <span class="hero-caption-text">La Collection Signature &bull; Automne 2024</span>
+              <a href="#menu" class="bracket-link" style="color: #FFFFFF; font-size: 0.95rem;">{ Découvrir nos créations }</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ABOUT SECTION (ECHOING IMAGE 2 EDITORIAL SPLIT)
+       Atmospheric storytelling, philosophy, and artisan pillars
+       ======================================================================== -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-kicker">L'Histoire &amp; L'Atelier</span>
+        <h2 class="section-title">The Art of the Quiet Pause</h2>
+        <p class="section-desc">
+          Coco's Café was conceived as an architectural retreat from urban pace &mdash; honoring the heritage of European salon culture with contemporary culinary finesse.
+        </p>
+      </div>
+
+      <div class="about-story-grid">
+        
+        <!-- Left: Editorial Photo with Floating Badge -->
+        <div class="about-visuals">
+          <div class="about-visual-primary">
+            <img 
+              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" 
+              alt="Interior of Coco's Cafe featuring warm architectural lighting and marble tables"
+              loading="lazy"
+            >
+          </div>
+          <div class="about-badge-floating">
+            <span class="about-badge-num">Est.</span>
+            <span class="about-badge-text">2024 &bull; Paris Atelier Tradition</span>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Prose & Pillars -->
+        <div class="about-text-content">
+          <blockquote class="editorial-highlight">
+            &ldquo;We believe coffee is not merely a morning ritual, but a sculptural dialogue between nature, temperature, and craft.&rdquo;
+          </blockquote>
+          
+          <p class="about-body-text">
+            Nestled behind grand arched windows, Coco's Café balances tactile materials &mdash; honed travertine marble, hand-brushed brass, aged linen &mdash; with the sensory delight of freshly extracted micro-lot coffees and fragrant butter pastry.
+          </p>
+
+          <p class="about-body-text">
+            Whether you seek an unhurried solo afternoon with our velvet cortado and a notebook, or a luminous weekend brunch accompanied by house-made pistachio Paris-Brest, our doors are open as your neighborhood sanctuary.
+          </p>
+
+          <div style="margin-top: 32px;">
+            <a href="#menu" class="bracket-link" style="font-size: 1.15rem;">{ Explore the Seasonal Menu }</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="about-pillars-grid">
+        <div class="pillar-card">
+          <i class="fa-solid fa-seedling pillar-icon"></i>
+          <h3 class="pillar-title">Ethical Micro-Lot Sourcing</h3>
+          <p class="pillar-desc">
+            Every green bean is directly procured from heritage altitude farms in Ethiopia, Colombia, and Costa Rica, honoring biodiverse cultivation and fair farmer partnerships.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <i class="fa-solid fa-wheat-awn pillar-icon"></i>
+          <h3 class="pillar-title">Pure French Pâtisserie</h3>
+          <p class="pillar-desc">
+            Our bakery operates on classic French discipline &mdash; churned Normandy butter, 48-hour levain fermentation, and single-origin Valrhona chocolate.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <i class="fa-solid fa-mug-hot pillar-icon"></i>
+          <h3 class="pillar-title">Curated Sound &amp; Space</h3>
+          <p class="pillar-desc">
+            Soft jazz, custom acoustic warmth, warm lighting, and generous seating designed to invite unhurried reading, reflection, and quiet companionship.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MENU SECTION (ECHOING IMAGE 1 PRODUCT GALLERY STYLE)
+       Organized by Category: Coffee, Hot Beverages, Cold Beverages,
+       Desserts, Snacks, Main Course. Filterable with Live Search.
+       ======================================================================== -->
+  <section class="section" id="menu">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-kicker">La Carte des Délices</span>
+        <h2 class="section-title">Curated Offerings</h2>
+        <p class="section-desc">
+          Crafted daily with seasonal ingredients, rare micro-lot roasts, and artisanal bakery craftsmanship. Browse by category or search our offerings.
+        </p>
+      </div>
+
+      <!-- Menu Controls: Search & Category Tabs -->
+      <div class="menu-controls">
+        <div class="menu-search-wrap">
+          <input 
+            type="text" 
+            class="menu-search-input" 
+            id="menuSearchInput" 
+            placeholder="Search menu (e.g. cappuccino, croissant, truffle)..."
+            aria-label="Search menu items"
+          >
+          <i class="fa-solid fa-magnifying-glass menu-search-icon"></i>
+        </div>
+
+        <ul class="menu-category-tabs" id="menuTabs">
+          <li><button class="menu-tab-btn active" data-category="all">All Creations</button></li>
+          <li><button class="menu-tab-btn" data-category="coffee">Coffee</button></li>
+          <li><button class="menu-tab-btn" data-category="hot-beverages">Hot Beverages</button></li>
+          <li><button class="menu-tab-btn" data-category="cold-beverages">Cold Beverages</button></li>
+          <li><button class="menu-tab-btn" data-category="desserts">Desserts &amp; Pâtisserie</button></li>
+          <li><button class="menu-tab-btn" data-category="snacks">Snacks &amp; Savory</button></li>
+          <li><button class="menu-tab-btn" data-category="main-course">Main Course</button></li>
+        </ul>
+      </div>
+
+      <!-- Menu Items Grid (Replicating Image 1 catalog cards) -->
+      <div class="menu-grid" id="menuGrid">
+        
+        <!-- 1. COFFEE: Signature Velouté Cappuccino -->
+        <article class="menu-card" data-category="coffee">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Signature</span>
+            <img 
+              src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80" 
+              alt="Velouté Cappuccino with silky foam" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Velouté Cappuccino</h3>
+              <span class="menu-card-price">$6.50</span>
+            </div>
+            <p class="menu-card-desc">
+              Double shot Ethiopian Yirgacheffe, silky textured micro-foam, dusted with Valrhona 70% cocoa powder and Madagascar vanilla bean.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Artisanal</span>
+                <span class="dietary-tag">Oat milk available</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Velouté Cappuccino', '$6.50')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. COFFEE: Truffle Espresso Cortado -->
+        <article class="menu-card" data-category="coffee">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Maison Special</span>
+            <img 
+              src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" 
+              alt="Truffle Cortado with warm bronze crema" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Truffle Cortado</h3>
+              <span class="menu-card-price">$7.00</span>
+            </div>
+            <p class="menu-card-desc">
+              Equal parts rich Colombian ristretto and steamed whole milk, kissed with dark chocolate truffle essence and smoked sea salt.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Signature</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Truffle Cortado', '$7.00')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. COFFEE: Hand-Drip Geisha Pour-Over -->
+        <article class="menu-card" data-category="coffee">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Reserve Lot</span>
+            <img 
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" 
+              alt="Pour-over coffee dripping into glass carafe" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Panama Geisha Pour-Over</h3>
+              <span class="menu-card-price">$9.50</span>
+            </div>
+            <p class="menu-card-desc">
+              Delicate, tea-like body with floral jasmine aromas, bergamot notes, and a sweet stone fruit finish. Brewed tableside on Kalita Wave.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Single Origin</span>
+                <span class="dietary-tag">Black</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Panama Geisha Pour-Over', '$9.50')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. HOT BEVERAGES: Valrhona Chocolat Chaud -->
+        <article class="menu-card" data-category="hot-beverages">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Parisian Classic</span>
+            <img 
+              src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80" 
+              alt="Rich hot chocolate in porcelain cup" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Valrhona Chocolat Chaud</h3>
+              <span class="menu-card-price">$8.00</span>
+            </div>
+            <p class="menu-card-desc">
+              Thick, velvety dark chocolate melted slowly with Normandy cream, cinnamon bark infusion, served with house-whipped chantilly cream.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Vegetarian</span>
+                <span class="dietary-tag">Indulgent</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Valrhona Chocolat Chaud', '$8.00')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. HOT BEVERAGES: Ceremonial Uji Matcha Latte -->
+        <article class="menu-card" data-category="hot-beverages">
+          <div class="menu-card-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80" 
+              alt="Ceremonial Matcha Latte with green froth" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Uji Ceremonial Matcha</h3>
+              <span class="menu-card-price">$7.50</span>
+            </div>
+            <p class="menu-card-desc">
+              First-harvest Kyoto ceremonial matcha stone-ground and whisked with velvety oat milk, raw organic honey, and toasted sesame aroma.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Antioxidant</span>
+                <span class="dietary-tag">Vegan option</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Uji Ceremonial Matcha', '$7.50')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. HOT BEVERAGES: Spiced Cardamom Chai Infusion -->
+        <article class="menu-card" data-category="hot-beverages">
+          <div class="menu-card-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" 
+              alt="Steaming spiced chai infusion" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Cardamom Chai Infusion</h3>
+              <span class="menu-card-price">$6.75</span>
+            </div>
+            <p class="menu-card-desc">
+              Assam orthodox black tea slow-simmered with crushed green cardamom pods, fresh ginger root, star anise, and whole milk.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Aromatic</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Cardamom Chai Infusion', '$6.75')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. COLD BEVERAGES: Yuzu Cold Brew Tonic -->
+        <article class="menu-card" data-category="cold-beverages">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Refreshing</span>
+            <img 
+              src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80" 
+              alt="Iced cold brew tonic with citrus slice" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Yuzu Cold Brew Tonic</h3>
+              <span class="menu-card-price">$7.25</span>
+            </div>
+            <p class="menu-card-desc">
+              18-hour cold steeped single-estate beans layered over artisanal tonic water, Japanese yuzu citrus cordial, and fresh rosemary sprig.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Vegan</span>
+                <span class="dietary-tag">Zero Sugar Option</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Yuzu Cold Brew Tonic', '$7.25')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. COLD BEVERAGES: Iced Pistachio Crème Latte -->
+        <article class="menu-card" data-category="cold-beverages">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Favorite</span>
+            <img 
+              src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80" 
+              alt="Iced pistachio cream latte with layers" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Iced Pistachio Crème</h3>
+              <span class="menu-card-price">$8.25</span>
+            </div>
+            <p class="menu-card-desc">
+              Chilled double espresso over oat milk, topped with a velvety cloud of Sicilian pistachio sweet cream and roasted crushed pistachios.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Signature</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Iced Pistachio Crème', '$8.25')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. DESSERTS: Mille-Feuille à la Vanille de Madagascar -->
+        <article class="menu-card" data-category="desserts">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Chef Selection</span>
+            <img 
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" 
+              alt="Classic French Mille-Feuille pastry" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Mille-Feuille Vanille</h3>
+              <span class="menu-card-price">$11.50</span>
+            </div>
+            <p class="menu-card-desc">
+              Caramelized inverted puff pastry layered with silky Madagascar Bourbon vanilla bean diplomat cream and golden spun sugar crown.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Baked Fresh Daily</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Mille-Feuille Vanille', '$11.50')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. DESSERTS: Basque Burnt Cheesecake -->
+        <article class="menu-card" data-category="desserts">
+          <div class="menu-card-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80" 
+              alt="Slice of creamy Basque burnt cheesecake" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Basque Burnt Cheesecake</h3>
+              <span class="menu-card-price">$10.00</span>
+            </div>
+            <p class="menu-card-desc">
+              Caramelized, dark blistered top with an ultra-creamy, molten interior, subtle citrus zest, and Maldon flake sea salt sprinkle.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Gluten-Free</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Basque Burnt Cheesecake', '$10.00')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. DESSERTS: Croissant Pur Beurre de Normandie -->
+        <article class="menu-card" data-category="desserts">
+          <div class="menu-card-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" 
+              alt="Golden flaky French butter croissant" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Croissant Pur Beurre</h3>
+              <span class="menu-card-price">$4.75</span>
+            </div>
+            <p class="menu-card-desc">
+              Classic French croissant laminated with 84% churned Normandy butter, featuring an airy honeycomb crumb and paper-crisp golden exterior.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Warm from oven</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Croissant Pur Beurre', '$4.75')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12. SNACKS: Truffle & Comté Brioche Toastie -->
+        <article class="menu-card" data-category="snacks">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Warm Savory</span>
+            <img 
+              src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80" 
+              alt="Toasted brioche sandwich with melted Comté" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Truffle &amp; Comté Toastie</h3>
+              <span class="menu-card-price">$14.50</span>
+            </div>
+            <p class="menu-card-desc">
+              House-baked brioche griddled with 24-month aged Comté, black summer truffle butter, caramelized shallots, and fresh thyme.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Artisan Bread</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Truffle &amp; Comté Toastie', '$14.50')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13. SNACKS: Smoked Salmon & Herb Tartine -->
+        <article class="menu-card" data-category="snacks">
+          <div class="menu-card-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=800&q=80" 
+              alt="Smoked salmon tartine with capers and dill" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Salmon Gravlax Tartine</h3>
+              <span class="menu-card-price">$16.00</span>
+            </div>
+            <p class="menu-card-desc">
+              Danish seeded sourdough, lemon labneh spread, house-cured salmon gravlax, pickled baby shallots, caperberries, and fresh dill sprigs.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Fresh</span>
+                <span class="dietary-tag">Pescatarian</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Salmon Gravlax Tartine', '$16.00')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14. MAIN COURSE: Wild Forest Mushroom Tagliatelle -->
+        <article class="menu-card" data-category="main-course">
+          <div class="menu-card-img-wrap">
+            <span class="menu-card-badge">Main Course</span>
+            <img 
+              src="https://images.unsplash.com/photo-1621996346565-e3d5d6281691?auto=format&fit=crop&w=800&q=80" 
+              alt="Tagliatelle pasta with wild mushrooms and parmesan" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Forest Mushroom Tagliatelle</h3>
+              <span class="menu-card-price">$22.00</span>
+            </div>
+            <p class="menu-card-desc">
+              Handmade egg tagliatelle ribbons tossed with sautéed chanterelles, porcini broth reduction, aged Parmigiano Reggiano, and white truffle oil.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Handmade Pasta</span>
+                <span class="dietary-tag">Vegetarian</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Forest Mushroom Tagliatelle', '$22.00')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 15. MAIN COURSE: Pan-Roasted Salmon & Saffron Velouté -->
+        <article class="menu-card" data-category="main-course">
+          <div class="menu-card-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" 
+              alt="Pan-roasted salmon fillet with saffron velouté" 
+              class="menu-card-img" 
+              loading="lazy"
+            >
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3 class="menu-card-title">Salmon au Safran</h3>
+              <span class="menu-card-price">$26.50</span>
+            </div>
+            <p class="menu-card-desc">
+              Crisp-skinned Norwegian salmon fillet served over braised baby leeks, fingerling potatoes, and a fragrant saffron-infused beurre blanc.
+            </p>
+            <div class="menu-card-footer">
+              <div class="menu-dietary-tags">
+                <span class="dietary-tag">Gluten-Free</span>
+                <span class="dietary-tag">Seafood</span>
+              </div>
+              <button class="menu-order-btn" onclick="openOrderModal('Salmon au Safran', '$26.50')">
+                Order <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Empty search result indicator -->
+        <div class="menu-no-results" id="menuNoResults">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 2.2rem; color: var(--text-muted); margin-bottom: 16px;"></i>
+          <h4 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 8px;">No matching creations found</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 20px;">Try adjusting your search terms or selecting another category.</p>
+          <button class="btn btn-outline" onclick="resetMenuFilter()">Reset Filters</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EDITORIAL ATMOSPHERE BANNER (MIRRORING IMAGE 2 SPLIT FEATURE)
+       "Les éditions Coco's - Une exclusivité de la maison"
+       ======================================================================== -->
+  <section class="editorial-feature-section">
+    <div class="container">
+      <div class="editorial-feature-grid">
+        
+        <div>
+          <img 
+            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1000&q=80" 
+            alt="Hand-selected whole coffee beans with warm bronze tones" 
+            class="editorial-feature-img"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="editorial-feature-text">
+          <span class="section-kicker">L'Exclusivité de la Maison</span>
+          <h2 class="editorial-feature-title">
+            Les éditions Félix &amp; Coco &mdash; Une sélection exclusive de notre torréfaction.
+          </h2>
+          <p class="editorial-feature-p">
+            Each month, our master roasters select a singular harvest from micro-producers who share our devotion to regenerative farming and terroir. Packaged in collectible amber glass vessels with handwritten tasting notes.
+          </p>
+          <div>
+            <a href="#contact" class="bracket-link" style="font-size: 1.2rem;">{ En savoir plus sur nos éditions limitées }</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       GALLERY SECTION & LIGHTBOX (VANILLA JS)
+       Interior, Seating, Food & Ambience
+       ======================================================================== -->
+  <section class="section" id="gallery">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-kicker">Atmosphère &amp; Détails</span>
+        <h2 class="section-title">The Gallery</h2>
+        <p class="section-desc">
+          A glimpse into the daily cadence of Coco's Café &mdash; sun-dappled tables, steam from polished brass levers, and moments of pause.
+        </p>
+      </div>
+
+      <!-- Gallery Filter -->
+      <div class="gallery-filter-tabs" id="galleryTabs">
+        <button class="gallery-tab-btn active" data-gcategory="all">All Vignettes</button>
+        <button class="gallery-tab-btn" data-gcategory="interior">Interiors &amp; Seating</button>
+        <button class="gallery-tab-btn" data-gcategory="craft">Coffee &amp; Craft</button>
+        <button class="gallery-tab-btn" data-gcategory="patisserie">Pâtisserie &amp; Plates</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        
+        <!-- Image 1 -->
+        <div class="gallery-item span-2" data-gcat="interior" onclick="openLightbox(0)">
+          <img 
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" 
+            alt="Warm architectural cafe interior with marble tables" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">The Grand Salon</h4>
+            <span class="gallery-item-cat">Interiors &bull; Natural Light</span>
+          </div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="gallery-item" data-gcat="craft" onclick="openLightbox(1)">
+          <img 
+            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" 
+            alt="Espresso extraction into ceramic cup" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">Precision Extraction</h4>
+            <span class="gallery-item-cat">Coffee &bull; Barista Craft</span>
+          </div>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="gallery-item" data-gcat="patisserie" onclick="openLightbox(2)">
+          <img 
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" 
+            alt="Hand-laminated butter croissants on cooling rack" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">Morning Viennoiserie</h4>
+            <span class="gallery-item-cat">Pâtisserie &bull; Fresh Daily</span>
+          </div>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="gallery-item" data-gcat="interior" onclick="openLightbox(3)">
+          <img 
+            src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1000&q=80" 
+            alt="Quiet corner booth seating with warm lighting" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">The Reading Nook</h4>
+            <span class="gallery-item-cat">Seating &bull; Ambiance</span>
+          </div>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="gallery-item span-2" data-gcat="patisserie" onclick="openLightbox(4)">
+          <img 
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80" 
+            alt="Mille-feuille with spun sugar and delicate cream" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">Vanilla Mille-Feuille</h4>
+            <span class="gallery-item-cat">Pâtisserie &bull; Signature</span>
+          </div>
+        </div>
+
+        <!-- Image 6 -->
+        <div class="gallery-item" data-gcat="interior" onclick="openLightbox(5)">
+          <img 
+            src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1000&q=80" 
+            alt="Outdoor cafe terrace seating with Parisian street view" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">La Terrasse</h4>
+            <span class="gallery-item-cat">Exterior &bull; Al Fresco</span>
+          </div>
+        </div>
+
+        <!-- Image 7 -->
+        <div class="gallery-item" data-gcat="craft" onclick="openLightbox(6)">
+          <img 
+            src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80" 
+            alt="Latte art heart in custom ceramic cup" 
+            class="gallery-img"
+            loading="lazy"
+          >
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-expand gallery-zoom-icon"></i>
+            <h4 class="gallery-item-title">The Velvet Pour</h4>
+            <span class="gallery-item-cat">Coffee &bull; Single Origin</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button class="lightbox-btn lightbox-close" id="lightboxCloseBtn" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-btn lightbox-prev" id="lightboxPrevBtn" aria-label="Previous Image">&#10094;</button>
+    <button class="lightbox-btn lightbox-next" id="lightboxNextBtn" aria-label="Next Image">&#10095;</button>
+    
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CUSTOMER REVIEWS SECTION
+       Warm cards, verified patron feedback, Google reviews rating
+       ======================================================================== -->
+  <section class="section section-alt" id="reviews">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-kicker">Éloges &amp; Témoignages</span>
+        <h2 class="section-title">Words From Our Patrons</h2>
+        <p class="section-desc">
+          Reflections from the travelers, artists, and neighborhood regulars who make Coco's Café their second home.
+        </p>
+      </div>
+
+      <!-- Rating summary card -->
+      <div class="reviews-summary-card">
+        <div class="rating-big-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="rating-big-score">4.9 / 5.0</div>
+        <p class="rating-summary-text">
+          Based on 380+ verified Google Reviews &bull; Ranked Top Specialty Café
+        </p>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid">
+        
+        <!-- Review 1 -->
+        <article class="review-card">
+          <div>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">
+              &ldquo;The closest thing to a classic Saint-Germain salon in the modern world. Their Velouté Cappuccino is sublime, and the quiet background acoustics make it heaven for writing.&rdquo;
+            </p>
+          </div>
+          <div class="review-author-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" 
+              alt="Portrait of Camille Laurent" 
+              class="review-author-avatar"
+            >
+            <div>
+              <h4 class="review-author-name">Camille Laurent</h4>
+              <span class="review-author-meta">Architect &bull; Google Verified Review</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Review 2 -->
+        <article class="review-card">
+          <div>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">
+              &ldquo;The inverted puff pastry on their vanilla mille-feuille crackles like glass. You can taste the quality of the Normandy butter immediately. An indispensable treasure.&rdquo;
+            </p>
+          </div>
+          <div class="review-author-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" 
+              alt="Portrait of Julian Vance" 
+              class="review-author-avatar"
+            >
+            <div>
+              <h4 class="review-author-name">Julian Vance</h4>
+              <span class="review-author-meta">Culinary Critic &bull; Google Local Guide</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Review 3 -->
+        <article class="review-card">
+          <div>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">
+              &ldquo;Remarkable service. The baristas speak of coffee tasting notes with the passion of seasoned sommeliers. Don't leave without tasting their iced pistachio crème latte.&rdquo;
+            </p>
+          </div>
+          <div class="review-author-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" 
+              alt="Portrait of Sophie Meyer" 
+              class="review-author-avatar"
+            >
+            <div>
+              <h4 class="review-author-name">Sophie Meyer</h4>
+              <span class="review-author-meta">Art Director &bull; Verified Patron</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Google Reviews Button -->
+      <div class="reviews-cta-wrap">
+        <a 
+          href="https://maps.google.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-outline"
+        >
+          <i class="fa-brands fa-google"></i> Read All 380+ Reviews On Google
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LOCATION SECTION
+       Address, Google Maps iframe, Live Opening Hours
+       ======================================================================== -->
+  <section class="section" id="location">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-kicker">Nous Trouver</span>
+        <h2 class="section-title">Visit The Atelier</h2>
+        <p class="section-desc">
+          Situated on a tree-lined boulevard, our doors welcome you for your morning brew, afternoon pause, or evening contemplation.
+        </p>
+      </div>
+
+      <div class="location-grid">
+        
+        <!-- Info Column -->
+        <div class="location-info-card">
+          <div>
+            <div class="location-info-block">
+              <h3 class="location-info-title">
+                <i class="fa-solid fa-location-dot"></i> The Address
+              </h3>
+              <p class="location-address">
+                <strong>Coco's Café &amp; Atelier</strong><br>
+                14 Rue de la Paix / 240 Grand Boulevard<br>
+                75002 Paris &bull; France<br>
+                <em style="color: var(--text-muted); font-size: 0.82rem;">(Editable placeholder for actual cafe premises)</em>
+              </p>
+            </div>
+
+            <div class="location-info-block">
+              <h3 class="location-info-title">
+                <i class="fa-regular fa-clock"></i> Opening Hours
+              </h3>
+              <table class="hours-table" id="hoursTable">
+                <tr data-day="1"><td class="hours-day">Monday</td><td class="hours-time">8:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="2"><td class="hours-day">Tuesday</td><td class="hours-time">8:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="3"><td class="hours-day">Wednesday</td><td class="hours-time">8:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="4"><td class="hours-day">Thursday</td><td class="hours-time">8:00 AM &ndash; 10:00 PM</td></tr>
+                <tr data-day="5"><td class="hours-day">Friday</td><td class="hours-time">8:00 AM &ndash; 10:30 PM</td></tr>
+                <tr data-day="6"><td class="hours-day">Saturday</td><td class="hours-time">8:30 AM &ndash; 10:30 PM</td></tr>
+                <tr data-day="0"><td class="hours-day">Sunday</td><td class="hours-time">8:30 AM &ndash; 9:00 PM</td></tr>
+              </table>
+            </div>
+
+            <div class="location-info-block">
+              <h3 class="location-info-title">
+                <i class="fa-solid fa-train-subway"></i> Transit &amp; Parking
+              </h3>
+              <p class="location-address" style="font-size: 0.88rem;">
+                Metro: Opéra (Lines 3, 7, 8) &bull; Madeleine (Lines 8, 12, 14)<br>
+                Valet &amp; bicycle parking available directly in front.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <a 
+              href="https://maps.google.com/?q=14+Rue+de+la+Paix+Paris" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-primary"
+              style="width: 100%;"
+            >
+              <i class="fa-solid fa-diamond-turn-right"></i> Get Directions on Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Map Column -->
+        <div class="location-map-wrap">
+          <iframe 
+            class="location-map-iframe"
+            title="Google Maps Location for Coco's Cafe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.477002030997!2d2.3292419768652467!3d48.86817109999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e31006a86c9%3A0x6b63d91cf9723048!2sRue%20de%20la%20Paix%2C%2075002%20Paris%2C%20France!5e0!3m2!1sen!2s!4v1715000000000!5m2!1sen!2s" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT & RESERVATION SECTION
+       Editable details, WhatsApp integration, reservation form
+       ======================================================================== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-kicker">Réservations &amp; Correspondance</span>
+        <h2 class="section-title">Reserve a Table &bull; Get in Touch</h2>
+        <p class="section-desc">
+          We welcome table reservations for weekend brunch, intimate gatherings, and afternoon coffee tastings. Walk-ins are always welcomed with open warmth.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Details Cards -->
+        <div class="contact-details-panel">
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 8px;">Direct Atelier Contact</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;">
+            Feel free to call, email, or message our team for private events, dietary inquiries, or takeaway orders.
+          </p>
+
+          <div class="contact-card-list">
+            
+            <!-- Phone -->
+            <a href="tel:+33142680000" class="contact-item-card">
+              <i class="fa-solid fa-phone contact-item-icon"></i>
+              <div>
+                <span class="contact-item-label">Telephone (Editable)</span>
+                <span class="contact-item-val">+33 (0)1 42 68 00 00</span>
+              </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:bonjour@cocos-cafe.fr" class="contact-item-card">
+              <i class="fa-regular fa-envelope contact-item-icon"></i>
+              <div>
+                <span class="contact-item-label">Email Concierge (Editable)</span>
+                <span class="contact-item-val">bonjour@cocos-cafe.fr</span>
+              </div>
+            </a>
+
+            <!-- Address -->
+            <div class="contact-item-card">
+              <i class="fa-solid fa-map-pin contact-item-icon"></i>
+              <div>
+                <span class="contact-item-label">Address</span>
+                <span class="contact-item-val">14 Rue de la Paix, 75002 Paris</span>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="contact-item-card">
+              <i class="fa-regular fa-clock contact-item-icon"></i>
+              <div>
+                <span class="contact-item-label">Daily Service</span>
+                <span class="contact-item-val">Mon &ndash; Sun: 8:00 AM &ndash; 10:00 PM</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- WhatsApp Direct Action Button -->
+          <div class="whatsapp-direct-banner">
+            <div>
+              <span class="whatsapp-direct-text">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem; margin-right: 6px;"></i>
+                Instant WhatsApp Inquiries &amp; Takeaway
+              </span>
+              <p style="font-size: 0.78rem; color: #15803D; margin-top: 2px;">Chat directly with our head barista.</p>
+            </div>
+            <!-- WhatsApp URL with editable phone number placeholder -->
+            <a 
+              href="https://wa.me/33142680000?text=Hello%20Coco's%20Cafe,%20I%20would%20like%20to%20inquire%20about%20a%20table%20reservation." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-primary"
+              style="background-color: #15803D; border-color: #15803D; padding: 10px 18px; font-size: 0.74rem;"
+            >
+              Message Us
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div style="margin-top: 36px;">
+            <span class="contact-item-label">Follow The Maison</span>
+            <div class="contact-socials-row">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Instagram" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Facebook" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Pinterest" aria-label="Pinterest">
+                <i class="fa-brands fa-pinterest-p"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Twitter" aria-label="Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Reservation / Message Form -->
+        <div class="reservation-form-card">
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 6px;">Reserve Your Experience</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">
+            Fill in the details below. Instant confirmation will be delivered to your inbox.
+          </p>
+
+          <form id="reservationForm">
+            
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="resName" class="form-label">Full Name *</label>
+                <input type="text" id="resName" class="form-control" placeholder="e.g. Jean Dupont" required>
+              </div>
+              <div class="form-group">
+                <label for="resEmail" class="form-label">Email Address *</label>
+                <input type="email" id="resEmail" class="form-control" placeholder="e.g. jean@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="resPhone" class="form-label">Phone Number *</label>
+                <input type="tel" id="resPhone" class="form-control" placeholder="+33 ..." required>
+              </div>
+              <div class="form-group">
+                <label for="resGuests" class="form-label">Party Size *</label>
+                <select id="resGuests" class="form-control" required>
+                  <option value="1">1 Person (Quiet Counter)</option>
+                  <option value="2" selected>2 Guests (Table)</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5+">5+ Guests (Salon Private)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="resDate" class="form-label">Date *</label>
+                <input type="date" id="resDate" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="resTime" class="form-label">Time Slot *</label>
+                <select id="resTime" class="form-control" required>
+                  <option value="morning">Morning Coffee &bull; 9:00 AM</option>
+                  <option value="brunch" selected>Late Morning / Brunch &bull; 11:30 AM</option>
+                  <option value="afternoon">Afternoon Pâtisserie &bull; 3:00 PM</option>
+                  <option value="evening">Evening Pause &bull; 6:30 PM</option>
+                  <option value="dinner">Dinner &bull; 8:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="resNotes" class="form-label">Special Occasion or Dietary Preferences</label>
+              <textarea id="resNotes" class="form-control" rows="3" placeholder="Window seating, vegan milk, anniversary celebration, etc."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Confirm Table Reservation
+            </button>
+
+            <div class="form-feedback" id="formFeedback">
+              <i class="fa-solid fa-circle-check" style="margin-right: 6px;"></i>
+              Merci! Your reservation request has been received. A confirmation note has been dispatched to your email.
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       Coco's Cafe Branding, Tagline, Navigation, Social Links, Copyright
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <!-- Brand Col -->
+        <div>
+          <span class="footer-brand-title">COCO'S</span>
+          <span class="footer-brand-sub">CAFÉ &amp; ATELIER</span>
+          <p class="footer-tagline">
+            An artisanal French salon celebrating fine micro-lot roasts, heritage viennoiserie, and the quiet luxury of timeless hospitality.
+          </p>
+          <a href="#about" class="bracket-link" style="color: var(--accent-gold);">{ L'Esprit de la Maison }</a>
+        </div>
+
+        <!-- Navigation Col -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#about" class="footer-link">About The Atelier</a></li>
+            <li><a href="#menu" class="footer-link">La Carte &amp; Menu</a></li>
+            <li><a href="#gallery" class="footer-link">Photo Gallery</a></li>
+            <li><a href="#reviews" class="footer-link">Patron Reviews</a></li>
+            <li><a href="#location" class="footer-link">Location &amp; Hours</a></li>
+          </ul>
+        </div>
+
+        <!-- Menu Highlights Col -->
+        <div>
+          <h4 class="footer-col-title">Signatures</h4>
+          <ul class="footer-links-list">
+            <li><a href="#menu" class="footer-link">Velouté Cappuccino</a></li>
+            <li><a href="#menu" class="footer-link">Panama Geisha Pour-Over</a></li>
+            <li><a href="#menu" class="footer-link">Madagascar Mille-Feuille</a></li>
+            <li><a href="#menu" class="footer-link">Valrhona Chocolat Chaud</a></li>
+            <li><a href="#menu" class="footer-link">Truffle Brioche Toastie</a></li>
+            <li><a href="#menu" class="footer-link">Forest Mushroom Tagliatelle</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Hours Col -->
+        <div>
+          <h4 class="footer-col-title">La Gazette de l'Atelier</h4>
+          <p style="color: #BFB6AB; font-size: 0.86rem; line-height: 1.6; margin-bottom: 12px;">
+            Receive seasonal bean arrival alerts, private salon invitations, and monthly pastry previews.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci! You have been subscribed to La Gazette de Coco\'s.'); this.reset();">
+            <input type="email" class="newsletter-input" placeholder="Your email address..." required aria-label="Email address for newsletter">
+            <button type="submit" class="newsletter-btn">Join</button>
+          </form>
+
+          <div style="margin-top: 24px; font-size: 0.8rem; color: #8C8276;">
+            <p>14 Rue de la Paix &bull; 75002 Paris</p>
+            <p>Open Daily 8:00 AM &ndash; 10:00 PM</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="currentYear">2026</span> Coco's Café &amp; Atelier. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" style="color: inherit;" onclick="alert('Privacy Policy: We protect customer privacy with utmost discretion.'); return false;">Privacy Policy</a>
+          <a href="#" style="color: inherit;" onclick="alert('Terms of Service: Coco\'s Cafe is an artisanal establishment.'); return false;">Terms of Service</a>
+          <a href="#home" style="color: inherit;">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       AUTHENTIC COOKIE CONSENT BANNER (MATCHING THE REFERENCE SCREENSHOTS)
+       "Nous utilisons des cookies de mesure d'audience... [Refuser] [Accepter]"
+       ======================================================================== -->
+  <aside class="reference-cookie-banner" id="cookieBanner" role="region" aria-label="Cookie preferences">
+    <p class="cookie-banner-text">
+      Nous utilisons des cookies de mesure d'audience pour comprendre l'usage du site et améliorer votre expérience. Pour plus d'informations, veuillez consulter notre <a href="#" onclick="alert('Politique de confidentialité : Nous respectons votre vie privée.'); return false;">politique de confidentialité</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn-refuse" id="cookieRefuseBtn">Refuser</button>
+      <button class="cookie-btn-accept" id="cookieAcceptBtn">Accepter</button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       LIVE SEARCH MODAL (POPUP FOR RECHERCHE)
+       ======================================================================== -->
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Site Search">
+    <div class="search-modal-box">
+      <button class="search-modal-close" id="searchModalCloseBtn" aria-label="Close search">&times;</button>
+      <div class="search-modal-input-wrap">
+        <i class="fa-solid fa-magnifying-glass search-modal-icon"></i>
+        <input 
+          type="text" 
+          class="search-modal-input" 
+          id="globalSearchInput" 
+          placeholder="Type to search menu, coffee, or atelier..."
+          autocomplete="off"
+        >
+      </div>
+      <p style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); margin-bottom: 12px;">Suggested Quick Links</p>
+      <ul class="search-modal-results" id="searchResultsList">
+        <li class="search-result-item" onclick="quickSearchSelect('Velouté Cappuccino')">
+          <span><strong>Velouté Cappuccino</strong> &mdash; Signature Coffee</span>
+          <span style="color: var(--accent-gold);">$6.50</span>
+        </li>
+        <li class="search-result-item" onclick="quickSearchSelect('Mille-Feuille Vanille')">
+          <span><strong>Mille-Feuille Vanille</strong> &mdash; Fresh French Pâtisserie</span>
+          <span style="color: var(--accent-gold);">$11.50</span>
+        </li>
+        <li class="search-result-item" onclick="quickSearchSelect('Panama Geisha')">
+          <span><strong>Panama Geisha Pour-Over</strong> &mdash; Rare Harvest</span>
+          <span style="color: var(--accent-gold);">$9.50</span>
+        </li>
+        <li class="search-result-item" onclick="quickSearchSelect('Truffle & Comté Toastie')">
+          <span><strong>Truffle &amp; Comté Toastie</strong> &mdash; Warm Savory</span>
+          <span style="color: var(--accent-gold);">$14.50</span>
+        </li>
+        <li class="search-result-item" onclick="jumpToSection('location')">
+          <span><strong>Location &amp; Opening Hours</strong> &mdash; Rue de la Paix</span>
+          <i class="fa-solid fa-arrow-right" style="color: var(--text-muted);"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Floating Quick Actions -->
+  <a 
+    href="https://wa.me/33142680000?text=Hello%20Coco's%20Cafe,%20I%20have%20an%20inquiry." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="floating-whatsapp" 
+    title="Chat with Coco's Cafe on WhatsApp" 
+    aria-label="WhatsApp Chat"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <button class="back-to-top" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ========================================================================
+       VANILLA JAVASCRIPT (ZERO DEPENDENCIES)
+       All logic strictly contained within script tag
+       ======================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Current Year in Footer
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // 2. Set min date for reservations to today
+      const resDateInput = document.getElementById('resDate');
+      if (resDateInput) {
+        const todayStr = new Date().toISOString().split('T')[0];
+        resDateInput.min = todayStr;
+        resDateInput.value = todayStr;
+      }
+
+      // 3. Highlight Current Day in Opening Hours Table
+      const currentDayIndex = new Date().getDay(); // 0 is Sunday, 1 is Monday...
+      const todayRow = document.querySelector(`.hours-table tr[data-day="${currentDayIndex}"]`);
+      if (todayRow) {
+        todayRow.classList.add('today');
+        const dayCell = todayRow.querySelector('.hours-day');
+        if (dayCell) dayCell.innerHTML += ' <span style="font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-gold);">&bull; Today</span>';
+      }
+
+      // 4. Sticky Header Blur and Elevation on Scroll
+      const siteHeader = document.getElementById('siteHeader');
+      const backToTopBtn = document.getElementById('backToTopBtn');
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        if (siteHeader) {
+          if (scrollY > 40) {
+            siteHeader.classList.add('scrolled');
+          } else {
+            siteHeader.classList.remove('scrolled');
+          }
+        }
+
+        if (backToTopBtn) {
+          if (scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        }
+      });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 5. Active Nav Highlighting on Scroll
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id]');
+
+      function updateActiveNav() {
+        const scrollPos = window.scrollY + 140;
+        sections.forEach(sec => {
+          const top = sec.offsetTop;
+          const height = sec.offsetHeight;
+          const id = sec.getAttribute('id');
+
+          if (scrollPos >= top && scrollPos < top + height) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+      window.addEventListener('scroll', updateActiveNav);
+
+      // 6. Mobile Navigation Drawer
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileOpenBtn = document.getElementById('mobileMenuOpenBtn');
+      const mobileCloseBtn = document.getElementById('mobileMenuCloseBtn');
+      const mobileLinks = document.querySelectorAll('.mobile-drawer-link');
+
+      function openMobileMenu() {
+        if (mobileDrawer) mobileDrawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        if (mobileDrawer) mobileDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      if (mobileOpenBtn) mobileOpenBtn.addEventListener('click', openMobileMenu);
+      if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
+      mobileLinks.forEach(l => l.addEventListener('click', closeMobileMenu));
+
+      // 7. Menu Filtering by Category & Search Keyword
+      const menuTabs = document.querySelectorAll('.menu-tab-btn');
+      const menuCards = document.querySelectorAll('.menu-card');
+      const menuSearchInput = document.getElementById('menuSearchInput');
+      const menuNoResults = document.getElementById('menuNoResults');
+
+      let currentCategory = 'all';
+
+      function filterMenu() {
+        const query = menuSearchInput ? menuSearchInput.value.toLowerCase().trim() : '';
+        let visibleCount = 0;
+
+        menuCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const title = card.querySelector('.menu-card-title')?.textContent.toLowerCase() || '';
+          const desc = card.querySelector('.menu-card-desc')?.textContent.toLowerCase() || '';
+
+          const matchesCategory = (currentCategory === 'all' || cat === currentCategory);
+          const matchesQuery = (!query || title.includes(query) || desc.includes(query));
+
+          if (matchesCategory && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (menuNoResults) {
+          menuNoResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      menuTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          menuTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentCategory = tab.getAttribute('data-category');
+          filterMenu();
+        });
+      });
+
+      if (menuSearchInput) {
+        menuSearchInput.addEventListener('input', filterMenu);
+      }
+
+      window.resetMenuFilter = function() {
+        if (menuSearchInput) menuSearchInput.value = '';
+        currentCategory = 'all';
+        menuTabs.forEach(t => {
+          if (t.getAttribute('data-category') === 'all') t.classList.add('active');
+          else t.classList.remove('active');
+        });
+        filterMenu();
+      };
+
+      // 8. Gallery Filtering
+      const galleryTabs = document.querySelectorAll('.gallery-tab-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      galleryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          galleryTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const cat = tab.getAttribute('data-gcategory');
+
+          galleryItems.forEach(item => {
+            const itemCat = item.getAttribute('data-gcat');
+            if (cat === 'all' || itemCat === cat) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 9. Lightbox for Gallery (Vanilla JS with keyboard navigation)
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+      const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
+      const lightboxNextBtn = document.getElementById('lightboxNextBtn');
+
+      const galleryData = [
+        {
+          src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=85",
+          caption: "The Grand Salon &bull; Natural sunlight over honed travertine marble and custom Parisian seating"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1600&q=85",
+          caption: "Precision Extraction &bull; Single-origin Ethiopian Yirgacheffe pulled at 9 bars of pressure"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&q=85",
+          caption: "Morning Viennoiserie &bull; Hand-rolled butter croissants rested 48 hours for delicate lamination"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1600&q=85",
+          caption: "The Reading Nook &bull; Quiet corner alcove designed for unhurried literature and slow sips"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=85",
+          caption: "Madagascar Vanilla Mille-Feuille &bull; Inverted puff pastry with bourbon diplomat cream"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1600&q=85",
+          caption: "La Terrasse &bull; Parisian outdoor boulevard tables facing the morning light"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=1600&q=85",
+          caption: "The Velvet Pour &bull; Micro-foam latte art crafted by our senior barista"
+        }
+      ];
+
+      let currentLightboxIndex = 0;
+
+      window.openLightbox = function(index) {
+        currentLightboxIndex = index;
+        updateLightboxView();
+        if (lightboxModal) lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      function updateLightboxView() {
+        const item = galleryData[currentLightboxIndex];
+        if (item && lightboxImg && lightboxCaption) {
+          lightboxImg.src = item.src;
+          lightboxCaption.innerHTML = item.caption;
+        }
+      }
+
+      function closeLightbox() {
+        if (lightboxModal) lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function prevLightbox() {
+        currentLightboxIndex = (currentLightboxIndex - 1 + galleryData.length) % galleryData.length;
+        updateLightboxView();
+      }
+
+      function nextLightbox() {
+        currentLightboxIndex = (currentLightboxIndex + 1) % galleryData.length;
+        updateLightboxView();
+      }
+
+      if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+      if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', prevLightbox);
+      if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', nextLightbox);
+
+      if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) closeLightbox();
+        });
+      }
+
+      // Keyboard support for Lightbox
+      document.addEventListener('keydown', (e) => {
+        if (lightboxModal && lightboxModal.classList.contains('active')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') prevLightbox();
+          if (e.key === 'ArrowRight') nextLightbox();
+        }
+      });
+
+      // 10. Search Modal Logic ("Recherche")
+      const searchModal = document.getElementById('searchModal');
+      const openSearchBtn = document.getElementById('openSearchBtn');
+      const searchModalCloseBtn = document.getElementById('searchModalCloseBtn');
+      const globalSearchInput = document.getElementById('globalSearchInput');
+      const searchResultsList = document.getElementById('searchResultsList');
+
+      function openSearch() {
+        if (searchModal) {
+          searchModal.classList.add('active');
+          if (globalSearchInput) {
+            globalSearchInput.value = '';
+            setTimeout(() => globalSearchInput.focus(), 100);
+          }
+        }
+      }
+
+      function closeSearch() {
+        if (searchModal) searchModal.classList.remove('active');
+      }
+
+      if (openSearchBtn) openSearchBtn.addEventListener('click', openSearch);
+      if (searchModalCloseBtn) searchModalCloseBtn.addEventListener('click', closeSearch);
+
+      if (searchModal) {
+        searchModal.addEventListener('click', (e) => {
+          if (e.target === searchModal) closeSearch();
+        });
+      }
+
+      if (globalSearchInput) {
+        globalSearchInput.addEventListener('input', () => {
+          const q = globalSearchInput.value.toLowerCase().trim();
+          if (!q) {
+            searchResultsList.innerHTML = `
+              <li class="search-result-item" onclick="quickSearchSelect('Velouté Cappuccino')">
+                <span><strong>Velouté Cappuccino</strong> &mdash; Signature Coffee</span>
+                <span style="color: var(--accent-gold);">$6.50</span>
+              </li>
+              <li class="search-result-item" onclick="quickSearchSelect('Mille-Feuille Vanille')">
+                <span><strong>Mille-Feuille Vanille</strong> &mdash; Fresh French Pâtisserie</span>
+                <span style="color: var(--accent-gold);">$11.50</span>
+              </li>
+              <li class="search-result-item" onclick="quickSearchSelect('Panama Geisha')">
+                <span><strong>Panama Geisha Pour-Over</strong> &mdash; Rare Harvest</span>
+                <span style="color: var(--accent-gold);">$9.50</span>
+              </li>
+              <li class="search-result-item" onclick="quickSearchSelect('Truffle & Comté Toastie')">
+                <span><strong>Truffle &amp; Comté Toastie</strong> &mdash; Warm Savory</span>
+                <span style="color: var(--accent-gold);">$14.50</span>
+              </li>
+            `;
+            return;
+          }
+
+          // Search inside menu cards
+          let html = '';
+          let count = 0;
+          menuCards.forEach(card => {
+            const title = card.querySelector('.menu-card-title')?.textContent || '';
+            const price = card.querySelector('.menu-card-price')?.textContent || '';
+            const desc = card.querySelector('.menu-card-desc')?.textContent || '';
+
+            if (title.toLowerCase().includes(q) || desc.toLowerCase().includes(q)) {
+              count++;
+              html += `
+                <li class="search-result-item" onclick="quickSearchSelect('${title.replace(/'/g, "\\'")}')">
+                  <span><strong>${title}</strong> &mdash; ${desc.substring(0, 50)}...</span>
+                  <span style="color: var(--accent-gold); font-weight: 600;">${price}</span>
+                </li>
+              `;
+            }
+          });
+
+          if (count === 0) {
+            html = `<li style="padding: 16px; color: var(--text-muted); text-align: center;">No menu items matched &ldquo;${q}&rdquo;</li>`;
+          }
+
+          searchResultsList.innerHTML = html;
+        });
+      }
+
+      window.quickSearchSelect = function(itemName) {
+        closeSearch();
+        const menuSec = document.getElementById('menu');
+        if (menuSec) {
+          menuSec.scrollIntoView({ behavior: 'smooth' });
+          if (menuSearchInput) {
+            menuSearchInput.value = itemName;
+            currentCategory = 'all';
+            menuTabs.forEach(t => {
+              if (t.getAttribute('data-category') === 'all') t.classList.add('active');
+              else t.classList.remove('active');
+            });
+            filterMenu();
+          }
+        }
+      };
+
+      window.jumpToSection = function(id) {
+        closeSearch();
+        const sec = document.getElementById(id);
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      // 11. Quick Order Modal Interaction
+      window.openOrderModal = function(itemName, price) {
+        const contactSec = document.getElementById('contact');
+        if (contactSec) {
+          contactSec.scrollIntoView({ behavior: 'smooth' });
+          const notes = document.getElementById('resNotes');
+          if (notes) {
+            notes.value = `Order / Reservation request for: ${itemName} (${price}).`;
+            notes.focus();
+          }
+        }
+      };
+
+      // 12. Reservation Form Submission
+      const reservationForm = document.getElementById('reservationForm');
+      const formFeedback = document.getElementById('formFeedback');
+
+      if (reservationForm) {
+        reservationForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('resName')?.value || 'Guest';
+          const guests = document.getElementById('resGuests')?.value || '2';
+          const date = document.getElementById('resDate')?.value || 'Upcoming date';
+          const time = document.getElementById('resTime')?.value || 'Requested slot';
+
+          if (formFeedback) {
+            formFeedback.style.display = 'block';
+            formFeedback.innerHTML = `
+              <strong><i class="fa-solid fa-circle-check"></i> Merci beaucoup, ${name}!</strong><br>
+              Your table for <strong>${guests}</strong> on <strong>${date}</strong> (${time}) has been noted. Our concierge will send your reservation pass momentarily.
+            `;
+            reservationForm.reset();
+            setTimeout(() => {
+              formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+          }
+        });
+      }
+
+      // 13. Cookie Banner Persistence
+      const cookieBanner = document.getElementById('cookieBanner');
+      const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+      const cookieRefuseBtn = document.getElementById('cookieRefuseBtn');
+
+      if (sessionStorage.getItem('cocos_cookie_decision')) {
+        if (cookieBanner) cookieBanner.classList.add('hidden');
+      }
+
+      function handleCookieDecision(decision) {
+        sessionStorage.setItem('cocos_cookie_decision', decision);
+        if (cookieBanner) cookieBanner.classList.add('hidden');
+      }
+
+      if (cookieAcceptBtn) {
+        cookieAcceptBtn.addEventListener('click', () => handleCookieDecision('accepted'));
+      }
+      if (cookieRefuseBtn) {
+        cookieRefuseBtn.addEventListener('click', () => handleCookieDecision('refused'));
+      }
+
+    });
+  </script>
+
+</body>
+</html>
+
